@@ -1,0 +1,6 @@
+{
+  "home": ["Scarsdale, NY", "Eastchester, NY", "Bronxville, NY", "New Rochelle, NY", "Harrison, NY", "Rye, NY", "Larchmont, NY", "Pelham, NY", "Tarrytown, NY", "Armonk, NY", "Chappaqua, NY"],
+  "connecticut": ["Greenwich, CT", "Stamford, CT", "Darien, CT", "New Canaan, CT"],
+  "nyc": ["Bronx, NY", "Queens, NY", "New York, NY"],
+  "deprioritized_clinician_market": ["White Plains, NY"]
+}
