@@ -10,7 +10,7 @@ def incentive_for(campaign, credit_amount=None):
           "copy":"No referral-linked Rescu Credit is offered to clinical referral sources unless specifically cleared under an approved arrangement."
         }
     if campaign in NONCLINICAL_CAMPAIGNS:
-        amount = credit_amount if credit_amount is not None else "[APPROVED CREDIT]"
+        amount = credit_amount if credit_amount is not None else "$100"
         return {
           "eligible":True,
           "type":"rescu_credit",
