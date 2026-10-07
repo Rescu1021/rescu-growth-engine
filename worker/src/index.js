@@ -82,6 +82,35 @@ export default {
       return json({ ok: result.connected, ...result }, result.connected ? 200 : 502);
     }
 
+    // Read-only metadata discovery. Returns only object IDs/names, never CRM records.
+    // This lets us verify the live Twenty metadata API shape before enabling any
+    // provisioning mutation.
+    if (request.method === "GET" && url.pathname === "/health/twenty/metadata") {
+      if (!env.TWENTY_API_KEY || !env.TWENTY_BASE_URL) {
+        return json({ ok: false, error: "twenty_not_configured" }, 503);
+      }
+      try {
+        const body = await twentyFetch(env, "/rest/metadata/objects");
+        const raw = Array.isArray(body) ? body : (body?.data || body?.objects || []);
+        const objects = Array.isArray(raw)
+          ? raw.map((o) => ({
+              id: o?.id || null,
+              nameSingular: o?.nameSingular || null,
+              namePlural: o?.namePlural || null,
+              labelSingular: o?.labelSingular || null,
+            })).filter((o) => o.id || o.nameSingular || o.namePlural)
+          : [];
+        return json({ ok: true, count: objects.length, objects });
+      } catch (error) {
+        return json({
+          ok: false,
+          error: "metadata_probe_failed",
+          status: error?.status || 500,
+          detail: error?.body || error?.message || "unknown_error",
+        }, 502);
+      }
+    }
+
     // All future CRM mutation/provisioning routes live under /admin/*.
     // They fail closed unless a runtime RESCU_ADMIN_TOKEN secret exists and
     // the caller supplies the same value as Authorization: Bearer <token>.
