@@ -1,0 +1,2 @@
+Trigger Cloudflare deployment after correcting the Worker root directory.
+No runtime behavior changes.
