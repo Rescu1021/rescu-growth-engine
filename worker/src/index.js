@@ -28,7 +28,6 @@ async function twentyFetch(env, path, init = {}) {
 }
 
 async function probeTwenty(env) {
-  // Lightweight authenticated request. This does not mutate CRM data.
   const candidates = ["/rest/people?limit=1", "/rest/companies?limit=1"];
   let lastError;
   for (const path of candidates) {
@@ -47,6 +46,20 @@ async function probeTwenty(env) {
   };
 }
 
+function timingSafeEqual(a, b) {
+  if (typeof a !== "string" || typeof b !== "string" || a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+function isAdmin(request, env) {
+  if (!env.RESCU_ADMIN_TOKEN) return false;
+  const auth = request.headers.get("authorization") || "";
+  const supplied = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+  return timingSafeEqual(supplied, env.RESCU_ADMIN_TOKEN);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -57,6 +70,7 @@ export default {
         service: "rescu-growth-crm",
         twentyConfigured: Boolean(env.TWENTY_API_KEY),
         twentyBaseUrlConfigured: Boolean(env.TWENTY_BASE_URL),
+        adminProtectionConfigured: Boolean(env.RESCU_ADMIN_TOKEN),
       });
     }
 
@@ -68,9 +82,28 @@ export default {
       return json({ ok: result.connected, ...result }, result.connected ? 200 : 502);
     }
 
-    // Provisioning and synchronization endpoints are deliberately not exposed
-    // until an admin authorization secret is configured. This prevents a
-    // public workers.dev URL from changing CRM metadata or records.
+    // All future CRM mutation/provisioning routes live under /admin/*.
+    // They fail closed unless a runtime RESCU_ADMIN_TOKEN secret exists and
+    // the caller supplies the same value as Authorization: Bearer <token>.
+    if (url.pathname.startsWith("/admin/")) {
+      if (!env.RESCU_ADMIN_TOKEN) {
+        return json({ ok: false, error: "admin_protection_not_configured" }, 503);
+      }
+      if (!isAdmin(request, env)) {
+        return json({ ok: false, error: "unauthorized" }, 401);
+      }
+
+      if (request.method === "GET" && url.pathname === "/admin/health") {
+        return json({
+          ok: true,
+          authorized: true,
+          twentyConfigured: Boolean(env.TWENTY_API_KEY && env.TWENTY_BASE_URL),
+        });
+      }
+
+      return json({ ok: false, error: "admin_route_not_implemented" }, 404);
+    }
+
     return json({ ok: false, error: "not_found" }, 404);
   },
 };
