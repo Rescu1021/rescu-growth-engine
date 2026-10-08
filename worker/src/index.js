@@ -191,6 +191,63 @@ export default {
         });
       }
 
+      // Explicitly gated automatic intake. No public form or outbound messaging.
+      // All callers must use the admin bearer secret.
+      if (request.method === "POST" && url.pathname === "/admin/intake/create") {
+        if (env.RESCU_AUTO_INTAKE_ENABLED !== "true") {
+          return json({ ok: false, error: "auto_intake_not_enabled" }, 503);
+        }
+        let data;
+        try { data = await request.json(); } catch {
+          return json({ ok: false, error: "invalid_json" }, 400);
+        }
+        const allowed = ["source", "externalId", "campaign", "service"];
+        if (!data || typeof data !== "object" || Array.isArray(data) ||
+            Object.keys(data).some(k => !allowed.includes(k)) ||
+            Object.values(data).some(v => typeof v !== "string" || v.length > 120)) {
+          return json({ ok: false, error: "invalid_payload" }, 400);
+        }
+        const { source, externalId, campaign = "", service = "" } = data;
+        if (!source || !/^[a-zA-Z0-9_-]{8,120}$/.test(externalId || "") ||
+            (!campaign && !service)) {
+          return json({ ok: false, error: "missing_required_fields" }, 400);
+        }
+        const routing = routeLead({ campaign, service });
+        try {
+          // Targeted Twenty REST filter; never create if response is ambiguous.
+          const filter = encodeURIComponent(JSON.stringify({
+            and: [
+              { rescuExternalId: { eq: externalId } },
+              { rescuSource: { eq: source } }
+            ]
+          }));
+          const existing = await twentyFetch(env, "/rest/opportunities?filter=" + filter + "&limit=2");
+          const rows = existing?.data?.opportunities ?? existing?.opportunities;
+          if (!Array.isArray(rows)) return json({ ok: false, error: "lookup_shape_unknown" }, 502);
+          if (rows.length) return json({ ok: true, status: "duplicate", created: false }, 200);
+          const created = await twentyFetch(env, "/rest/opportunities", {
+            method: "POST",
+            body: JSON.stringify({
+              name: "RESCU " + (service || campaign).slice(0, 60) + " inquiry",
+              stage: "DISCOVERED",
+              rescuExternalId: externalId,
+              rescuSource: source,
+              rescuCampaign: campaign,
+              rescuRoutingOwner: routing.routingOwner,
+              rescuAutomationState: routing.automationState,
+              rescuLifecycle: "Discovered",
+              rescuSuppressed: true
+            })
+          });
+          const id = created?.data?.createOpportunity?.id ??
+            created?.data?.opportunity?.id ?? created?.opportunity?.id ?? created?.id;
+          if (!id) return json({ ok: false, error: "creation_unverified" }, 502);
+          return json({ ok: true, created: true, id, routingOwner: routing.routingOwner });
+        } catch (error) {
+          return json({ ok: false, error: "twenty_intake_failed", status: error.status || 500 }, 502);
+        }
+      }
+
       if (request.method === "GET" && url.pathname === "/admin/health") {
         return json({
           ok: true,
