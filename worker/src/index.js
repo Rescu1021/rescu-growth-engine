@@ -147,8 +147,24 @@ export default {
           return json({ ok: false, error: "valid_source_and_opaque_external_id_required" }, 400);
         }
         const route = routeLead({ campaign, service });
+        // Fetch a bounded opportunity page to detect existing opaque source IDs.
+        // Fail closed if the response is incomplete or cannot be interpreted.
+        let duplicateCheck = "not_checked";
+        try {
+          const result = await twentyFetch(env, "/rest/opportunities?limit=100");
+          const rows = Array.isArray(result?.data?.opportunities) ? result.data.opportunities :
+            Array.isArray(result?.opportunities) ? result.opportunities : null;
+          if (!rows) return json({ ok: false, error: "dedup_response_unrecognized" }, 502);
+          const match = rows.find(row => row.rescuExternalId === externalId && row.rescuSource === source);
+          if (match) duplicateCheck = "duplicate_found";
+          else if (rows.length === 100) duplicateCheck = "inconclusive_pagination_required";
+          else duplicateCheck = "not_found_in_current_records";
+        } catch {
+          return json({ ok: false, error: "dedup_lookup_failed" }, 502);
+        }
         return json({
           ok: true, mode: "dry_run", writesPerformed: 0,
+          duplicateCheck,
           proposedOpportunity: {
             stage: "DISCOVERED", campaign, source, externalId,
             routingOwner: route.routingOwner,
