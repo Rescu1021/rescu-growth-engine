@@ -131,6 +131,30 @@ export default {
         return json({ ok: false, error: "unauthorized" }, 401);
       }
 
+      // Authenticated intake validation only. No record writes until the
+      // deduplication and CRM create workflow is verified separately.
+      if (request.method === "POST" && url.pathname === "/admin/intake/preview") {
+        let data;
+        try { data = await request.json(); } catch {
+          return json({ ok: false, error: "invalid_json" }, 400);
+        }
+        const campaign = typeof data?.campaign === "string" ? data.campaign.slice(0, 120) : "";
+        const service = typeof data?.service === "string" ? data.service.slice(0, 120) : "";
+        const source = typeof data?.source === "string" ? data.source.slice(0, 120) : "";
+        if (!campaign && !service) return json({ ok: false, error: "campaign_or_service_required" }, 400);
+        const route = routeLead({ campaign, service });
+        return json({
+          ok: true, mode: "dry_run", writesPerformed: 0,
+          proposedOpportunity: {
+            stage: "DISCOVERED", campaign, source,
+            routingOwner: route.routingOwner,
+            automationState: route.automationState,
+            suppressed: true
+          },
+          nextStep: "verify_deduplication_before_enabling_writes"
+        });
+      }
+
       if (request.method === "GET" && url.pathname === "/admin/health") {
         return json({
           ok: true,
