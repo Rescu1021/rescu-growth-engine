@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "object": "opportunities",
+  "stages": [
+    "Discovered",
+    "Qualified",
+    "Drafted",
+    "Contacted",
+    "Replied",
+    "Meeting",
+    "Booked",
+    "Won",
+    "Lost",
+    "Recycle"
+  ],
+  "fields": [
+    {
+      "name": "rescuLifecycle",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuService",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuCampaign",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuSource",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuLeadScore",
+      "type": "NUMBER"
+    },
+    {
+      "name": "rescuLeadTier",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuRoutingOwner",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuAutomationState",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuResponseState",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuRecycleDate",
+      "type": "DATE"
+    },
+    {
+      "name": "rescuSuppressed",
+      "type": "BOOLEAN"
+    },
+    {
+      "name": "rescuBookingSource",
+      "type": "TEXT"
+    },
+    {
+      "name": "rescuRevenueSource",
+      "type": "TEXT"
+    }
+  ],
+  "routing": {
+    "hbot_sports": "Myrna",
+    "ortho_pt": "Myrna",
+    "fitness": "Myrna",
+    "pelvic_floor": "Myrna",
+    "corporate": "Myrna",
+    "clubs": "Myrna",
+    "aesthetics": "Ana",
+    "ozone_referral": "Clinical Review",
+    "default": "Review"
+  },
+  "safety": {
+    "noPHI": true,
+    "noAutomaticOutbound": true,
+    "adminApprovalRequired": true
+  }
+}
