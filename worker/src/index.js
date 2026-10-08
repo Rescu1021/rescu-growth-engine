@@ -141,12 +141,16 @@ export default {
         const campaign = typeof data?.campaign === "string" ? data.campaign.slice(0, 120) : "";
         const service = typeof data?.service === "string" ? data.service.slice(0, 120) : "";
         const source = typeof data?.source === "string" ? data.source.slice(0, 120) : "";
+        const externalId = typeof data?.externalId === "string" ? data.externalId.slice(0, 120) : "";
         if (!campaign && !service) return json({ ok: false, error: "campaign_or_service_required" }, 400);
+        if (!source || !externalId || !/^[a-zA-Z0-9_-]{8,120}$/.test(externalId)) {
+          return json({ ok: false, error: "valid_source_and_opaque_external_id_required" }, 400);
+        }
         const route = routeLead({ campaign, service });
         return json({
           ok: true, mode: "dry_run", writesPerformed: 0,
           proposedOpportunity: {
-            stage: "DISCOVERED", campaign, source,
+            stage: "DISCOVERED", campaign, source, externalId,
             routingOwner: route.routingOwner,
             automationState: route.automationState,
             suppressed: true
