@@ -1,3 +1,4 @@
+import { routeLead } from "./rescu-routing.js";
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
     status,
@@ -109,6 +110,14 @@ export default {
           detail: error?.body || error?.message || "unknown_error",
         }, 502);
       }
+    }
+
+    // Public deterministic routing preview; does not query or write CRM records.
+    if (request.method === "GET" && url.pathname === "/routing/preview") {
+      const campaign = (url.searchParams.get("campaign") || "").slice(0, 120);
+      const service = (url.searchParams.get("service") || "").slice(0, 120);
+      return json({ ok: true, mode: "preview", writesPerformed: 0,
+        campaign, service, ...routeLead({ campaign, service }) });
     }
 
     // All future CRM mutation/provisioning routes live under /admin/*.
