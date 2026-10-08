@@ -3,5 +3,6 @@
   "name": "rescu-growth-crm",
   "main": "src/index.js",
   "compatibility_date": "2026-10-07",
-  "workers_dev": true
+  "workers_dev": true,
+  "keep_vars": true
 }
