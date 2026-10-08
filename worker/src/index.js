@@ -147,18 +147,34 @@ export default {
           return json({ ok: false, error: "valid_source_and_opaque_external_id_required" }, 400);
         }
         const route = routeLead({ campaign, service });
-        // Fetch a bounded opportunity page to detect existing opaque source IDs.
-        // Fail closed if the response is incomplete or cannot be interpreted.
+        // Paginated read-only duplicate scan. Never treat a full or ambiguous
+        // response as evidence that a lead is new.
         let duplicateCheck = "not_checked";
         try {
-          const result = await twentyFetch(env, "/rest/opportunities?limit=100");
-          const rows = Array.isArray(result?.data?.opportunities) ? result.data.opportunities :
-            Array.isArray(result?.opportunities) ? result.opportunities : null;
-          if (!rows) return json({ ok: false, error: "dedup_response_unrecognized" }, 502);
-          const match = rows.find(row => row.rescuExternalId === externalId && row.rescuSource === source);
-          if (match) duplicateCheck = "duplicate_found";
-          else if (rows.length === 100) duplicateCheck = "inconclusive_pagination_required";
-          else duplicateCheck = "not_found_in_current_records";
+          let scanned = 0;
+          let found = false;
+          let complete = false;
+          for (let offset = 0; offset < 1000; offset += 100) {
+            const result = await twentyFetch(env, "/rest/opportunities?limit=100&offset=" + offset);
+            const rows = Array.isArray(result?.data?.opportunities) ? result.data.opportunities :
+              Array.isArray(result?.opportunities) ? result.opportunities : null;
+            if (!rows) return json({ ok: false, error: "dedup_response_unrecognized" }, 502);
+            if (offset > 0 && rows.length && result?.pagination === undefined &&
+                result?.pageInfo === undefined && result?.meta === undefined) {
+              // Offset behavior cannot be verified; do not claim completeness.
+              duplicateCheck = "inconclusive_pagination_unverified";
+              break;
+            }
+            scanned += rows.length;
+            if (rows.some(row => row.rescuExternalId === externalId && row.rescuSource === source)) {
+              found = true;
+              break;
+            }
+            if (rows.length < 100) { complete = true; break; }
+          }
+          if (found) duplicateCheck = "duplicate_found";
+          else if (complete) duplicateCheck = "not_found_in_current_records";
+          else if (duplicateCheck === "not_checked") duplicateCheck = "inconclusive_limit_reached";
         } catch {
           return json({ ok: false, error: "dedup_lookup_failed" }, 502);
         }
