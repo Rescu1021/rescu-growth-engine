@@ -177,9 +177,17 @@ def main():
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--no-images", action="store_true")
+    parser.add_argument("--logo-path", type=Path, help="Official RESCU logo image downloaded with permission")
+    parser.add_argument("--photo-sheet", type=Path, help="Licensed/AI-generated 4x2 photo sheet for editorial design")
     args = parser.parse_args()
     summary = produce(json.loads(args.manifest.read_text(encoding="utf-8")),
                       args.output_dir, pngs=not args.no_images)
+    if args.logo_path or args.photo_sheet:
+        if args.no_images or not args.logo_path or not args.photo_sheet:
+            parser.error("Provide both --logo-path and --photo-sheet, without --no-images")
+        from .editorial_design import render as render_editorial
+        render_editorial(args.manifest, args.logo_path, args.photo_sheet, args.output_dir)
+        summary["design"] = "Pinterest-inspired editorial with official RESCU logo"
     print(json.dumps(summary, indent=2))
 
 if __name__ == "__main__":
