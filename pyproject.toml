@@ -6,3 +6,6 @@ requires-python = ">=3.11"
 
 [project.scripts]
 rescu-growth-demo = "rescu_growth.demo:main"
+
+[tool.setuptools]
+packages = ["rescu_growth"]

@@ -1,0 +1,19 @@
+{
+  "slug": "first-hbot-visit-scarsdale",
+  "service": "Hyperbaric Oxygen Therapy",
+  "title": "Questions to ask before your first HBOT visit in Scarsdale",
+  "intro": "Hyperbaric oxygen therapy involves breathing oxygen in a pressurized chamber. Before considering an appointment, ask the Rescu team about screening, chamber type, and whether the visit is appropriate for you.",
+  "hook": "Curious about your first hyperbaric oxygen visit?",
+  "cta_label": "Explore RESCU booking",
+  "cta_url": "https://rescu.life/book",
+  "facts": [
+    {
+      "text": "Rescu has information about its physician-led wellness and recovery services on its website.",
+      "source_url": "https://rescu.life/"
+    },
+    {
+      "text": "Rescu offers hyperbaric oxygen therapy as part of its wellness and recovery services.",
+      "source_url": "https://rescu.life/"
+    }
+  ]
+}

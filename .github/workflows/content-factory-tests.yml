@@ -1,0 +1,46 @@
+name: RESCU Content Factory — local-only checks
+on:
+  pull_request:
+    paths:
+      - "rescu_growth/content_factory.py"
+      - "rescu_growth/content_studio.py"
+      - "rescu_growth/editorial_design.py"
+      - "rescu_growth/reel_render.py"
+      - "pyproject.toml"
+      - "worker/**"
+      - "tests/**"
+      - "examples/**"
+      - ".github/workflows/content-factory-tests.yml"
+  push:
+    branches:
+      - "feature/rescu-content-factory-20261031"
+permissions:
+  contents: read
+jobs:
+  offline-content-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package and optional Pillow for graphics test
+        run: python -m pip install --disable-pip-version-check . Pillow
+      - name: Verify installed package outside the checkout
+        run: python -I -c "from rescu_growth import content_studio, editorial_design"
+      - name: Run offline unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Produce sample eight-campaign preview
+        run: python -m rescu_growth.content_studio --manifest examples/2026-rescu-eight-campaigns.json --output-dir /tmp/rescu-drafts
+      - name: Verify local preview output
+        run: |
+          test -f /tmp/rescu-drafts/index.html
+          test -f /tmp/rescu-drafts/campaign-links.csv
+          test -f /tmp/rescu-drafts/campaigns/trilift-demo-guide/cover-story.png
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate Worker bundle without uploading or deploying
+        run: npx --yes wrangler@4.156.0 deploy --dry-run --config worker/wrangler.jsonc --outdir /tmp/rescu-worker
+# No website deploy, no secrets, no publishing, no external content APIs.

@@ -1,0 +1,160 @@
+{
+  "campaigns": [
+    {
+      "slug": "first-dive-questions",
+      "service": "Hyperbaric Oxygen",
+      "title": "First HBOT visit: questions worth asking",
+      "hook": "Before your first HBOT visit, ask these three questions.",
+      "intro": "What should you ask about chamber options, appointment length and screening before scheduling a first hyperbaric oxygen session? Rescu's Scarsdale booking experience offers a starting point.",
+      "cta_label": "Explore HBOT booking",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "Rescu lists hyperbaric oxygen among its wellness and recovery services.",
+          "source_url": "https://rescu.life/treatments"
+        },
+        {
+          "text": "Rescu describes an introductory First Dive offering; eligibility, price and availability need confirmation.",
+          "source_url": "https://rescu.life/"
+        }
+      ]
+    },
+    {
+      "slug": "trilift-demo-guide",
+      "service": "TriLift",
+      "title": "TriLift demo: what to know first",
+      "hook": "Thinking about a facial muscle workout?",
+      "intro": "TriLift is an established offering at RESCU. Explore how dynamic muscle stimulation, RF and RF microneedling differ, and what questions to bring to a consultation.",
+      "cta_label": "Ask about the TriLift demo",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "Rescu describes TriLift as combining facial muscle stimulation and radiofrequency technologies.",
+          "source_url": "https://rescu.life/trilift"
+        },
+        {
+          "text": "Rescu offers a $300 demonstration as described on its TriLift page, subject to current terms.",
+          "source_url": "https://rescu.life/trilift"
+        }
+      ]
+    },
+    {
+      "slug": "skin-plan-questions",
+      "service": "Six-Week Skin Plan",
+      "title": "Six-week Skin Plan: what is included?",
+      "hook": "A facial plan is more than a single appointment.",
+      "intro": "Rescu's coordinated Skin Plan includes TriLift-related treatments and complementary wellness visits. Ask about clinical spacing, candidacy and program terms before enrollment.",
+      "cta_label": "Explore the Skin Plan",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "The published Skin Plan lists six TriLift/DMSt visits and three RF microneedling treatments.",
+          "source_url": "https://rescu.life/skin-plan"
+        },
+        {
+          "text": "Six red light + PEMF appointments and six 40-minute HBOT visits are also listed, subject to individual screening.",
+          "source_url": "https://rescu.life/skin-plan"
+        },
+        {
+          "text": "Rescu says RF microneedling is minimally invasive and treatment spacing may extend beyond six weeks.",
+          "source_url": "https://rescu.life/skin-plan"
+        }
+      ]
+    },
+    {
+      "slug": "rescu-reset-first-visit",
+      "service": "Red Light + PEMF",
+      "title": "What happens at a RESCU Reset?",
+      "hook": "New to RESCU? Explore your starting point.",
+      "intro": "The introductory RESCU Reset combines a goal-setting conversation with a short Red Light + PEMF experience and a personalized Roadmap. Ask about the current new-guest eligibility terms.",
+      "cta_label": "Explore the RESCU Reset",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "The RESCU Reset page lists a wellness goal assessment, a 20-minute Red Light + PEMF visit and a personalized roadmap.",
+          "source_url": "https://rescu.life/rescu-reset"
+        },
+        {
+          "text": "The Reset is promoted as complimentary for eligible new guests, subject to conditions and appointment availability.",
+          "source_url": "https://rescu.life/rescu-reset"
+        }
+      ]
+    },
+    {
+      "slug": "emsella-consult-questions",
+      "service": "Emsella",
+      "title": "Pelvic-floor consultation: questions to ask",
+      "hook": "Pelvic floor concerns deserve a thoughtful conversation.",
+      "intro": "Emsella is one of the services listed at RESCU. Learn what a consultation covers and how the clinician helps assess suitability before booking treatment.",
+      "cta_label": "Discuss Emsella options",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "Rescu includes Emsella in its pelvic-floor and body services listings.",
+          "source_url": "https://rescu.life/treatments"
+        },
+        {
+          "text": "Emsella appears among the services available to explore on Rescu's booking page.",
+          "source_url": "https://rescu.life/book"
+        }
+      ]
+    },
+    {
+      "slug": "corporate-wellness-pilot",
+      "service": "Corporate Wellness",
+      "title": "A wellness pilot your team can actually explore",
+      "hook": "What would a wellness visit look like for your team?",
+      "intro": "Westchester employers can explore a small team wellness conversation with RESCU before committing to any program. Share the number of interested employees and the practical scheduling needs.",
+      "cta_label": "Explore a team wellness consultation",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "Rescu includes Corporate Wellness in its online Programs and Memberships booking categories.",
+          "source_url": "https://rescu.life/book"
+        },
+        {
+          "text": "Rescu offers multiple recovery and wellness services that may be discussed when considering a group experience.",
+          "source_url": "https://rescu.life/treatments"
+        }
+      ]
+    },
+    {
+      "slug": "emsculpt-neo-first-visit",
+      "service": "Emsculpt NEO",
+      "title": "Emsculpt NEO: the first-visit conversation",
+      "hook": "Body contouring is not the same as weight loss.",
+      "intro": "Explore what Emsculpt NEO involves, which treatment goals it is intended for, and how Rescu approaches consultation and appropriate expectations.",
+      "cta_label": "Ask about Emsculpt NEO",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "Rescu lists Emsculpt NEO under body and performance services.",
+          "source_url": "https://rescu.life/treatments"
+        },
+        {
+          "text": "Rescu's treatment directory distinguishes muscle and body contouring options from other recovery services.",
+          "source_url": "https://rescu.life/treatments"
+        }
+      ]
+    },
+    {
+      "slug": "ozone-consult-basics",
+      "service": "Ozone Consultation",
+      "title": "Questions before considering an ozone consultation",
+      "hook": "Ask about evidence, risks and screening first.",
+      "intro": "RESCU lists ozone consultation as a physician-led wellness offering. Understand the evidence limitations and questions to ask about risks and suitability before considering an appointment.",
+      "cta_label": "Book an ozone consultation discussion",
+      "cta_url": "https://rescu.life/book",
+      "facts": [
+        {
+          "text": "Rescu's treatment directory says an ozone consultation begins with physician screening.",
+          "source_url": "https://rescu.life/treatments"
+        },
+        {
+          "text": "Rescu presents ozone in its treatment directory as a consultation rather than a guaranteed outcome.",
+          "source_url": "https://rescu.life/treatments"
+        }
+      ]
+    }
+  ]
+}
