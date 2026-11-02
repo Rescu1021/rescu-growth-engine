@@ -6,6 +6,7 @@ on:
       - "rescu_growth/content_studio.py"
       - "rescu_growth/editorial_design.py"
       - "rescu_growth/reel_render.py"
+      - "rescu_growth/video_planning.py"
       - "pyproject.toml"
       - "worker/**"
       - "tests/**"
@@ -35,6 +36,9 @@ jobs:
         run: python -m rescu_growth.content_studio --manifest examples/2026-rescu-eight-campaigns.json --output-dir /tmp/rescu-drafts
       - name: Verify local preview output
         run: |
+          test -f /tmp/rescu-drafts/campaigns/trilift-demo-guide/video-production.json
+          test -f /tmp/rescu-drafts/campaigns/trilift-demo-guide/captions-draft.vtt
+          grep -q BLOCKED_PENDING_CLINICAL /tmp/rescu-drafts/campaigns/trilift-demo-guide/video-quality-review.json
           test -f /tmp/rescu-drafts/index.html
           test -f /tmp/rescu-drafts/campaign-links.csv
           test -f /tmp/rescu-drafts/campaigns/trilift-demo-guide/cover-story.png
