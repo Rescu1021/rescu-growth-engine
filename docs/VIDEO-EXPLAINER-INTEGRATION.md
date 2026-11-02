@@ -36,7 +36,7 @@ Optional silent video preview (no narration or soundtrack):
 
 ```sh
 python -m rescu_growth.reel_render \
-  --storyboard output/rescu-eight/campaigns/first-hbot-visit-scarsdale/reel_storyboard.json \
+  --storyboard output/rescu-eight/campaigns/first-dive-questions/reel_storyboard.json \
   --output output/first-hbot-visit-silent-draft.mp4
 ```
 
