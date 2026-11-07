@@ -26,7 +26,7 @@ def retime_srt(source, destination, factor, limit=None):
     if not source.is_file():
         return
     source_text = source.read_text(encoding="utf-8-sig")
-    times = re.compile(r"(\\d{2}):(\\d{2}):(\\d{2}),(\\d{3})")
+    times = re.compile(r"(\d{2}):(\d{2}):(\d{2}),(\d{3})")
     def parse_time(m):
         h, m_, s, ms = map(int, m.groups())
         return (h * 3600 + m_ * 60 + s + ms / 1000) * factor
@@ -34,7 +34,7 @@ def retime_srt(source, destination, factor, limit=None):
         millis = round(max(0, seconds) * 1000)
         return f"{millis // 3600000:02}:{(millis // 60000) % 60:02}:{(millis // 1000) % 60:02},{millis % 1000:03}"
     blocks = []
-    for block in re.split(r"\\n\\s*\\n", source_text.strip()):
+    for block in re.split(r"\n\s*\n", source_text.strip()):
         lines = block.splitlines()
         if len(lines) < 3 or " --> " not in lines[1]:
             continue
@@ -48,9 +48,9 @@ def retime_srt(source, destination, factor, limit=None):
         if limit is not None:
             end = min(end, limit)
         if end > start:
-            blocks.append((start, end, "\\n".join(lines[2:])))
+            blocks.append((start, end, "\n".join(lines[2:])))
     destination.write_text("".join(
-        f"{i}\\n{stamp(s)} --> {stamp(e)}\\n{body}\\n\\n"
+        f"{i}\n{stamp(s)} --> {stamp(e)}\n{body}\n\n"
         for i, (s, e, body) in enumerate(blocks, 1)
     ), encoding="utf-8")
 
