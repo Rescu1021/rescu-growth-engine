@@ -78,5 +78,29 @@ class VideoPlanningTests(unittest.TestCase):
             self.assertFalse((dest / "index.html").exists())
 
 
+    def test_evidence_first_ozone_campaign_joins_existing_video_lineup(self):
+        manifest = json.loads(
+            (Path(__file__).resolve().parents[1] / "examples" / "2026-rescu-eight-campaigns.json")
+            .read_text(encoding="utf-8")
+        )
+        self.assertEqual(len(manifest["campaigns"]), 8)
+        ozone = next(c for c in manifest["campaigns"] if c["slug"] == "ozone-consult-basics")
+        self.assertIn("evidence", ozone["hook"].lower())
+        self.assertIn("Lyme", ozone["intro"])
+        self.assertIn("POTS", ozone["intro"])
+        self.assertTrue(all(f["source_url"].startswith("https://") for f in ozone["facts"]))
+        self.assertEqual(ozone["cta_url"], "https://rescu.life/book")
+        with TemporaryDirectory() as tmp:
+            report = produce({"campaigns": [ozone]}, Path(tmp), pngs=False)
+            self.assertEqual(report["video_plans_generated"], 1)
+            folder = Path(tmp) / "campaigns" / "ozone-consult-basics"
+            review = json.loads((folder / "video-quality-review.json").read_text())
+            self.assertIn("BLOCKED_PENDING", review["status"])
+            plan = json.loads((folder / "video-production.json").read_text())
+            self.assertEqual(plan["total_seconds"], 20)
+            self.assertEqual(len(plan["source_register_unverified"]), 4)
+            self.assertIn("WEBVTT", (folder / "captions-draft.vtt").read_text())
+
+
 if __name__ == "__main__":
     unittest.main()
