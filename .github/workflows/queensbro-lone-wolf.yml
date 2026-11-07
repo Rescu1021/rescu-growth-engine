@@ -1,0 +1,39 @@
+name: Queensbro — Lone Wolf lyric video
+
+on:
+  pull_request:
+    paths:
+      - "video_projects/queensbro/lone_wolf/**"
+      - ".github/workflows/queensbro-lone-wolf.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render-lyric-visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install video and typography dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          python -m pip install --disable-pip-version-check Pillow
+      - name: Render the 119-second visual draft
+        run: python video_projects/queensbro/lone_wolf/render.py --output output/lone-wolf
+      - name: Upload video, subtitles and verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: Queensbro-Lone-Wolf-1m59-Visual-Draft
+          path: |
+            output/lone-wolf/*.mp4
+            output/lone-wolf/*.srt
+            output/lone-wolf/*.ass
+            output/lone-wolf/render_report.json
+          if-no-files-found: error
+          retention-days: 30

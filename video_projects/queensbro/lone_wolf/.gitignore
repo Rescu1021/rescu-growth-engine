@@ -1,0 +1,6 @@
+output/
+__pycache__/
+*.mp3
+*.wav
+*.m4a
+*.mp4

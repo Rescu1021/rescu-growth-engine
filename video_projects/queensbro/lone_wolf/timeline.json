@@ -1,0 +1,559 @@
+{
+  "title": "Lone Wolf",
+  "artist": "Queensbro",
+  "duration_seconds": 119.0,
+  "fps": 30,
+  "canvas": [
+    1080,
+    1920
+  ],
+  "timing_status": "provisional",
+  "timing_method": "Text-length allocation; no recording was available.",
+  "audio_status": "missing",
+  "cues": [
+    {
+      "id": 1,
+      "start": 0.8,
+      "end": 1.84,
+      "text": "You chose violence",
+      "kind": "hook",
+      "verse": 1
+    },
+    {
+      "id": 2,
+      "start": 1.84,
+      "end": 2.88,
+      "text": "destroyed the peace",
+      "kind": "hook",
+      "verse": 1
+    },
+    {
+      "id": 3,
+      "start": 2.88,
+      "end": 5.01,
+      "text": "I guess I just got to this life alone",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 4,
+      "start": 5.01,
+      "end": 6.77,
+      "text": "Have a million contacts on my phone",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 5,
+      "start": 6.77,
+      "end": 8.9,
+      "text": "How is it that my heart is labeled unknown",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 6,
+      "start": 8.9,
+      "end": 10.66,
+      "text": "Not one contact coming in my zone",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 7,
+      "start": 10.66,
+      "end": 13.15,
+      "text": "Used be called alpha but lately they just call me lone",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 8,
+      "start": 13.15,
+      "end": 14.73,
+      "text": "Lone wolf with a guttural groan",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 9,
+      "start": 14.73,
+      "end": 17.04,
+      "text": "Enemies be like jodeci singing I wanna hear you moan",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 10,
+      "start": 17.04,
+      "end": 19.53,
+      "text": "Revenge on they mind they want to collect on the loan",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 11,
+      "start": 19.53,
+      "end": 21.29,
+      "text": "Loaning me a small piece of compassion",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 12,
+      "start": 21.29,
+      "end": 23.6,
+      "text": "Violence is their way it what they wear their fashion",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 13,
+      "start": 23.6,
+      "end": 24.64,
+      "text": "Straight ass lashing",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 14,
+      "start": 24.64,
+      "end": 25.5,
+      "text": "Head bashing",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 15,
+      "start": 25.5,
+      "end": 26.36,
+      "text": "Soul crashing",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 16,
+      "start": 26.36,
+      "end": 28.31,
+      "text": "As they pull the plug on my ventilator",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 17,
+      "start": 28.31,
+      "end": 30.62,
+      "text": "Talking about my mother saying they used to date her",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 18,
+      "start": 30.62,
+      "end": 32.75,
+      "text": "They talking about my sister said Medusa play her",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 19,
+      "start": 32.75,
+      "end": 33.61,
+      "text": "Hurtful imaginations",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 20,
+      "start": 33.61,
+      "end": 35.01,
+      "text": "Emergent nations always at war",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 21,
+      "start": 35.01,
+      "end": 36.23,
+      "text": "Warcry but no tears",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 22,
+      "start": 36.23,
+      "end": 38.36,
+      "text": "Tearing of skin from the scalp to the bone",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 23,
+      "start": 38.36,
+      "end": 39.94,
+      "text": "I lay down and die alone",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 24,
+      "start": 39.94,
+      "end": 40.98,
+      "text": "Alone alone alone",
+      "kind": "verse",
+      "verse": 1
+    },
+    {
+      "id": 25,
+      "start": 40.98,
+      "end": 42.02,
+      "text": "You chose violence",
+      "kind": "hook",
+      "verse": 2
+    },
+    {
+      "id": 26,
+      "start": 42.02,
+      "end": 43.06,
+      "text": "destroyed the peace",
+      "kind": "hook",
+      "verse": 2
+    },
+    {
+      "id": 27,
+      "start": 43.06,
+      "end": 44.82,
+      "text": "I’m falling fast out of the sky",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 28,
+      "start": 44.82,
+      "end": 46.95,
+      "text": "Wind ruffling my clothes as I’m about to die",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 29,
+      "start": 46.95,
+      "end": 49.44,
+      "text": "My mind racing through my past trying to find the lie",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 30,
+      "start": 49.44,
+      "end": 51.57,
+      "text": "The lie Telling me that I would live forever",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 31,
+      "start": 51.57,
+      "end": 54.06,
+      "text": "I’m sit in my dads nuts wondering if I should endeavor",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 32,
+      "start": 54.06,
+      "end": 55.46,
+      "text": "on this thing called life",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 33,
+      "start": 55.46,
+      "end": 57.41,
+      "text": "When dad shoots my brothers across the room",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 34,
+      "start": 57.41,
+      "end": 59.54,
+      "text": "Anyone of us outside the cavity means impending doom",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 35,
+      "start": 59.54,
+      "end": 61.67,
+      "text": "But i leaked inside to the ovaries I zoom",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 36,
+      "start": 61.67,
+      "end": 63.98,
+      "text": "Boom explosion and we have the first burst of light",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 37,
+      "start": 63.98,
+      "end": 66.11,
+      "text": "Boom explosion we have the first breath of life",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 38,
+      "start": 66.11,
+      "end": 67.87,
+      "text": "Zygote means I have my birth right",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 39,
+      "start": 67.87,
+      "end": 69.63,
+      "text": "Uterus implantation equals a secure birth site",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 40,
+      "start": 69.63,
+      "end": 71.21,
+      "text": "Hopefully moms lead a clean life",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 41,
+      "start": 71.21,
+      "end": 72.97,
+      "text": "So she can hold this egg right",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 42,
+      "start": 72.97,
+      "end": 74.73,
+      "text": "Birth rite start out as a baby",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 43,
+      "start": 74.73,
+      "end": 75.95,
+      "text": "But now I’m grown",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 44,
+      "start": 75.95,
+      "end": 77.35,
+      "text": "Well I’m own my own",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 45,
+      "start": 77.35,
+      "end": 78.57,
+      "text": "Owning anything I do",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 46,
+      "start": 78.57,
+      "end": 79.79,
+      "text": "Animal in the zoo",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 47,
+      "start": 79.79,
+      "end": 81.19,
+      "text": "Paying rent that is due",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 48,
+      "start": 81.19,
+      "end": 82.59,
+      "text": "Me dominating is nothing new",
+      "kind": "verse",
+      "verse": 2
+    },
+    {
+      "id": 49,
+      "start": 82.59,
+      "end": 83.63,
+      "text": "You chose violence",
+      "kind": "hook",
+      "verse": 3
+    },
+    {
+      "id": 50,
+      "start": 83.63,
+      "end": 84.67,
+      "text": "destroyed the peace",
+      "kind": "hook",
+      "verse": 3
+    },
+    {
+      "id": 51,
+      "start": 84.67,
+      "end": 86.43,
+      "text": "Yeah I’m on some grown man shit",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 52,
+      "start": 86.43,
+      "end": 88.01,
+      "text": "Love and respect I demand it",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 53,
+      "start": 88.01,
+      "end": 88.87,
+      "text": "Command it",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 54,
+      "start": 88.87,
+      "end": 91.0,
+      "text": "Right hook uppercut on the jaw I land it",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 55,
+      "start": 91.0,
+      "end": 92.76,
+      "text": "When I win that my man grit",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 56,
+      "start": 92.76,
+      "end": 94.52,
+      "text": "So tough adamantium style I withstand it",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 57,
+      "start": 94.52,
+      "end": 96.47,
+      "text": "Straight Wolverine, Dee troit Michigan style understand it",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 58,
+      "start": 96.47,
+      "end": 98.6,
+      "text": "Nah but for real of from New York City",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 59,
+      "start": 98.6,
+      "end": 99.46,
+      "text": "Specifically Queens",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 60,
+      "start": 99.46,
+      "end": 101.59,
+      "text": "When I say I’m from the q u e",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 61,
+      "start": 101.59,
+      "end": 103.72,
+      "text": "another e n s you know what that means",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 62,
+      "start": 103.72,
+      "end": 104.94,
+      "text": "Call e m s",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 63,
+      "start": 104.94,
+      "end": 107.61,
+      "text": "shots rang out before now its hemoglobin 44.2 leaking out your chest",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 64,
+      "start": 107.61,
+      "end": 109.92,
+      "text": "You on your way to Jamaica hospital in traumatic arrest",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 65,
+      "start": 109.92,
+      "end": 111.5,
+      "text": "Two chest tubes and a foley",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 66,
+      "start": 111.5,
+      "end": 114.17,
+      "text": "You praying for the force to save you like obi wan Kanobi",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 67,
+      "start": 114.17,
+      "end": 115.93,
+      "text": "They call me anakin last name thanos",
+      "kind": "verse",
+      "verse": 3
+    },
+    {
+      "id": 68,
+      "start": 115.93,
+      "end": 117.5,
+      "text": "Ultimate supergod trump of the cosmos",
+      "kind": "verse",
+      "verse": 3
+    }
+  ]
+}
