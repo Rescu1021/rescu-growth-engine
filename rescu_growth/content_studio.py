@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 
 from .content_factory import build, required, tracked, https_url
+from .video_planning import build_video_assets
 
 COLOR = {"plum": "#481B2E", "orange": "#E7714D", "fawn": "#F9E3DB",
          "lavender": "#BAA5C0", "chalk": "#F7F7F7"}
@@ -84,6 +85,9 @@ def _index(rows: list[dict]) -> str:
 <div class="links"><a href="campaigns/{slug}/landing.html">Article</a>
 <a href="campaigns/{slug}/instagram.txt">Caption</a>
 <a href="campaigns/{slug}/reel_storyboard.json">Storyboard</a>
+<a href="campaigns/{slug}/video-production.json">Video plan</a>
+<a href="campaigns/{slug}/captions-draft.vtt">Captions draft</a>
+<a href="campaigns/{slug}/video-quality-review.json">Video QA</a>
 <a href="campaigns/{slug}/review.json">Review</a>
 <a href="campaigns/{slug}/cover-story.png">Story</a></div>
 </div></article>''')
@@ -124,6 +128,7 @@ def produce(manifest: dict, output_root: Path, *, pngs: bool = True) -> dict:
     # Validate the entire batch before writing anything.
     for spec in specs:
         pack = build(spec)
+        pack.update(build_video_assets(spec, pack))
         slug = spec["slug"]
         if slug in seen:
             raise ValueError("Duplicate campaign slug: " + slug)
@@ -166,10 +171,11 @@ def produce(manifest: dict, output_root: Path, *, pngs: bool = True) -> dict:
         "RESCU Content Factory — internal campaign review\n"
         "Each generated claim requires source and physician verification.\n"
         "None of these files were published, posted, mailed, or sent to leads.\n"
+        "Video plans, transcripts and scene-timed VTT are drafts, NOT finished narrated videos.\n"
         "For source URLs pointing at RESCU, verify that they actually support the fact.\n"
         "Use the official RESCU logo only when an approved asset is supplied.\n",
         encoding="utf-8")
-    return {"campaigns": len(rows), "png_generated": pngs,
+    return {"campaigns": len(rows), "video_plans_generated": len(rows), "png_generated": pngs,
             "output_dir": str(output_root)}
 
 def main():

@@ -140,18 +140,26 @@
     {
       "slug": "ozone-consult-basics",
       "service": "Ozone Consultation",
-      "title": "Questions before considering an ozone consultation",
-      "hook": "Ask about evidence, risks and screening first.",
-      "intro": "RESCU lists ozone consultation as a physician-led wellness offering. Understand the evidence limitations and questions to ask about risks and suitability before considering an appointment.",
-      "cta_label": "Book an ozone consultation discussion",
+      "title": "Ozone therapy: what the evidence does and does not show",
+      "hook": "Ozone therapy: what does the evidence say?",
+      "intro": "For Lyme, long COVID, POTS or herpes, you deserve careful evidence review, not promises.",
+      "cta_label": "Discuss the evidence with RESCU",
       "cta_url": "https://rescu.life/book",
       "facts": [
         {
-          "text": "Rescu's treatment directory says an ozone consultation begins with physician screening.",
-          "source_url": "https://rescu.life/treatments"
+          "text": "A 2026 review found ozone therapy evidence inconsistent and often low certainty.",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13303763/"
         },
         {
-          "text": "Rescu presents ozone in its treatment directory as a consultation rather than a guaranteed outcome.",
+          "text": "Federal ozone-device regulations identify ozone as toxic and restrict unsupported medical-use claims.",
+          "source_url": "https://www.law.cornell.edu/cfr/text/21/801.415"
+        },
+        {
+          "text": "Proposed oxidative and cellular effects do not establish clinical benefit for these conditions.",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13253314/"
+        },
+        {
+          "text": "RESCU lists an ozone consultation in its treatment directory; a request is subject to screening.",
           "source_url": "https://rescu.life/treatments"
         }
       ]
