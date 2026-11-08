@@ -1,0 +1,33 @@
+name: RESCU public SEO audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 13 * * 2" # Weekly Tuesday UTC; GitHub scheduled runs may be delayed.
+
+permissions:
+  contents: read
+
+jobs:
+  seo-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Offline audit unit tests
+        run: python -m unittest discover -s tests -p "test_seo_audit.py" -v
+      - name: Read-only live site audit
+        run: |
+          python seo/site_audit.py --output seo-report.md
+          cat seo-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Archive audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rescu-seo-report
+          path: seo-report.md
+          if-no-files-found: warn
+          retention-days: 30
