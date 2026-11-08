@@ -1,0 +1,96 @@
+{
+  "campaign": "RESCU HBOT | ATHLETES | 60s",
+  "format": "9:16",
+  "duration_s": 60,
+  "video": {
+    "width": 720,
+    "height": 1280,
+    "fps": 24
+  },
+  "logo_asset": "RESCU official logo in Google Drive (not redistributed)",
+  "source_photo": "RESCU HBOT in-office image (not redistributed)",
+  "colors": {
+    "burgundy": "#44142A",
+    "coral": "#FF653B",
+    "lavender": "#B8A5BD",
+    "silver": "#DADEE9",
+    "dark": "#0C0C17"
+  },
+  "brand": "RESCU PERFORMANCE",
+  "tagline": "ONE BODY. ONE LIFE.",
+  "link": "https://rescu.life/book?service=hbot-trial",
+  "site": "https://rescu.life/hbot-athletes-performance",
+  "phone": "914-401-8552",
+  "address": "111 Brook Street, Suite 106, Scarsdale, NY 10583",
+  "introductory_offer": "$199 First Dive (verify before publishing)",
+  "disclaimer": "HBOT for recovery/wellness. Clinical screening required. Individual results vary. Not intended to diagnose, treat, cure, or prevent disease.",
+  "scenes": [
+    {
+      "start": 0,
+      "end": 10,
+      "visual": "Sprinter / training graphic; fast cuts",
+      "lines": [
+        "EVERY REP.",
+        "EVERY SPRINT.",
+        "EVERY LAST SECOND.",
+        "YOU GIVE THE GAME EVERYTHING.",
+        "WHAT ABOUT RECOVERY?"
+      ]
+    },
+    {
+      "start": 10,
+      "end": 20,
+      "visual": "Sport and motion typography",
+      "lines": [
+        "TRAIN HARD.",
+        "RECOVER SMART.",
+        "THE NEXT SESSION STARTS NOW.",
+        "RECOVERY IS PART OF THE WORK."
+      ]
+    },
+    {
+      "start": 20,
+      "end": 30,
+      "visual": "HBOT chamber, oxygen/plasma graphic",
+      "lines": [
+        "MEET HBOT.",
+        "OXYGEN. UNDER PRESSURE.",
+        "MORE OXYGEN IN BLOOD PLASMA.",
+        "BUILT AROUND YOUR GOALS."
+      ]
+    },
+    {
+      "start": 30,
+      "end": 40,
+      "visual": "Authentic RESCU chamber office photograph with physician; logo",
+      "lines": [
+        "ONE BODY.",
+        "ONE LIFE.",
+        "TAKE RECOVERY SERIOUSLY.",
+        "PHYSICIAN-LED. ATHLETE-FOCUSED."
+      ]
+    },
+    {
+      "start": 40,
+      "end": 50,
+      "visual": "Sport and recovery particles",
+      "lines": [
+        "RUN. LIFT. COMPETE.",
+        "MAKE ROOM TO RECOVER.",
+        "EVERY SPORT. EVERY LEVEL.",
+        "LET RECOVERY BE YOUR ROUTINE."
+      ]
+    },
+    {
+      "start": 50,
+      "end": 60,
+      "visual": "RESCU logo, location, offer and booking CTA",
+      "lines": [
+        "YOUR FIRST DIVE.",
+        "$199 INTRO VISIT",
+        "BOOK YOUR DIVE.",
+        "RESCU SCARSDALE."
+      ]
+    }
+  ]
+}
